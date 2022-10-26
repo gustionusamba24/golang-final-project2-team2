@@ -1,7 +1,7 @@
 package error_formats
 
 import (
-	"products/utils/error_utils"
+	"golang-final-project2-team2/utils/error_utils"
 	"strings"
 )
 

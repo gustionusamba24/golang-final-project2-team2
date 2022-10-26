@@ -1,9 +1,9 @@
 package product_domain
 
 import (
-	"products/db"
-	"products/utils/error_formats"
-	"products/utils/error_utils"
+	"golang-final-project2-team2/db"
+	"golang-final-project2-team2/utils/error_formats"
+	"golang-final-project2-team2/utils/error_utils"
 )
 
 var ProductDomain productDomainRepo = &productDomain{}

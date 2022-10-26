@@ -1,13 +1,13 @@
 package router
 
 import (
-	"products/controller/product_controller"
-	"products/db"
+	"golang-final-project2-team2/controller/user_controller"
+	"golang-final-project2-team2/db"
 
 	"github.com/gin-gonic/gin"
 )
 
-var PORT = ":8080"
+const PORT = ":8080"
 
 func init() {
 	db.InitializeDB()
@@ -18,10 +18,10 @@ func StartRouter() {
 
 	productRouter := router.Group("/products")
 	{
-		productRouter.POST("/", product_controller.CreateProduct)
-		productRouter.PUT("/:productId", product_controller.UpdateProduct)
-		productRouter.GET("/", product_controller.GetProducts)
-		productRouter.DELETE("/:productId", product_controller.DeleteProduct)
+		productRouter.POST("/", user_controller.CreateProduct)
+		productRouter.PUT("/:productId", user_controller.UpdateProduct)
+		productRouter.GET("/", user_controller.GetProducts)
+		productRouter.DELETE("/:productId", user_controller.DeleteProduct)
 	}
 
 	router.Run(PORT)

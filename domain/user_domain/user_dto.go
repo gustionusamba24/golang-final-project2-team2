@@ -1,7 +1,7 @@
 package product_domain
 
 import (
-	"products/utils/error_utils"
+	"golang-final-project2-team2/utils/error_utils"
 	"strconv"
 	"time"
 

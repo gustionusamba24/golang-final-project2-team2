@@ -1,8 +1,8 @@
 package product_service
 
 import (
-	"products/domain/product_domain"
-	"products/utils/error_utils"
+	product_domain "golang-final-project2-team2/domain/user_domain"
+	"golang-final-project2-team2/utils/error_utils"
 )
 
 var ProductService productServiceRepo = &productService{}

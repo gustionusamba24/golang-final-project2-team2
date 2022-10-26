@@ -1,10 +1,10 @@
 package product_controller
 
 import (
+	"golang-final-project2-team2/domain/product_domain"
+	"golang-final-project2-team2/service/product_service"
+	"golang-final-project2-team2/utils/error_utils"
 	"net/http"
-	"products/domain/product_domain"
-	"products/service/product_service"
-	"products/utils/error_utils"
 
 	"github.com/gin-gonic/gin"
 )
