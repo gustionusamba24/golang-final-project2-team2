@@ -1,12 +1,9 @@
 package main
 
 import (
-	"fmt"
-	"regexp"
+	"golang-final-project2-team2/router"
 )
 
 func main() {
-	// router.StartRouter()
-
-	fmt.Println(regexp.QuoteMeta(`SELECT id, email, password from users WHERE email = $1`))
+	router.StartRouter()
 }

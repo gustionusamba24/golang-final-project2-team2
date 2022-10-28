@@ -1,4 +1,4 @@
-package error_utils
+package ErrorUtils
 
 import "net/http"
 
@@ -42,7 +42,7 @@ func NewBadRequest(message string) MessageErr {
 	}
 }
 
-func NewInternalServerErrorr(message string) MessageErr {
+func NewInternalServerError(message string) MessageErr {
 	return &MessageErrData{
 		ErrMessage: message,
 		ErrStatus:  http.StatusInternalServerError,
