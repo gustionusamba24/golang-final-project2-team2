@@ -1,4 +1,4 @@
-package ErrorUtils
+package error_utils
 
 import "net/http"
 
@@ -39,6 +39,14 @@ func NewBadRequest(message string) MessageErr {
 		ErrMessage: message,
 		ErrStatus:  http.StatusBadRequest,
 		ErrError:   "bad_request",
+	}
+}
+
+func NewUnauthorizedRequest(message string) MessageErr {
+	return &MessageErrData{
+		ErrMessage: message,
+		ErrStatus:  http.StatusUnauthorized,
+		ErrError:   "unauthorized",
 	}
 }
 

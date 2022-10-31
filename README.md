@@ -14,5 +14,6 @@ Anggota Kelompok :
 
 1. Buka dan jalankan aplikasi docker.
 2. Jalankan command `docker compose up --build` untuk menjalankan database postgres di dalam docker container , go dan air auto reload. Tunggu agar docker sudah berjalan dengan baik.
+3. Setelah docker container semuanya berjalan dengan baik. Maka port default yang akan dibuka adalah `8081`
 
 _Note : Memerlukan docker terinstall didalam perangkat anda_

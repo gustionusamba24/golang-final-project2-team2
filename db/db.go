@@ -21,7 +21,7 @@ func InitializeDB() {
 		log.Fatal("error loading .env file")
 	}
 
-	dbdriver := os.Getenv("DBDRIVER")
+	dbDriver := os.Getenv("DB_DRIVER")
 	username := os.Getenv("USERNAME")
 	password := os.Getenv("PASSWORD")
 	host := os.Getenv("HOST")
@@ -29,17 +29,17 @@ func InitializeDB() {
 	PORT := os.Getenv("PORT")
 
 	// DBURL := fmt.Sprintf("%s:%s@%s:%s/%s?sslmode=disable", username, password, host, PORT, database)
-	DBURL := fmt.Sprintf("postgresql://%s:%s@%s:%s/%s?sslmode=disable", username, password, host, PORT, database)
+	dbUrl := fmt.Sprintf("postgresql://%s:%s@%s:%s/%s?sslmode=disable", username, password, host, PORT, database)
 	// DBURL := fmt.Sprintf("mysql://%s:%s@%s:%s/%s?sslmode=disable", username, password, host, PORT, database)
 
-	db, err = sql.Open(dbdriver, DBURL)
+	db, err = sql.Open(dbDriver, dbUrl)
 
 	if err != nil {
 		log.Fatal("Error connecting to database:", err.Error())
 	}
 
 	Migrations(db)
-	
+
 	fmt.Println("Successfully connected to database")
 }
 

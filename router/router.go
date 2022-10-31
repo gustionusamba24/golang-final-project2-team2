@@ -1,12 +1,11 @@
 package router
 
 import (
-	"golang-final-project2-team2/controllers/UserController"
+	"github.com/gin-gonic/gin"
+	"golang-final-project2-team2/controllers/user_controllers"
 	"golang-final-project2-team2/db"
 	"golang-final-project2-team2/middlewares"
 	"log"
-
-	"github.com/gin-gonic/gin"
 )
 
 const PORT = ":8081"
@@ -17,19 +16,23 @@ func init() {
 
 func StartRouter() {
 	router := gin.Default()
-
-	userRouter := router.Group("/users")
+	apiRouter := router.Group("/api")
 	{
-		userRouter.POST("/register", UserController.CreateUser)
-		userRouter.POST("/login", UserController.CreateUser)
-		userRouter.Use(middlewares.MiddlewareAuth())
-		userRouter.PUT("/users", UserController.CreateUser)
+		userRouter := apiRouter.Group("/users")
+		{
+			userRouter.POST("/register", user_controllers.CreateUser)
+			userRouter.POST("/login", user_controllers.UserLogin)
+			userRouter.Use(middlewares.MiddlewareAuth())
+			userRouter.PUT("/:userId", user_controllers.UpdateUser)
+			userRouter.DELETE("/", user_controllers.DeleteUser)
 
-		//productRouter.PUT("/:productId", UserController.UpdateProduct)
-		//productRouter.GET("/", UserController.GetProducts)
-		//productRouter.DELETE("/:productId", UserController.DeleteProduct)
+			//productRouter.PUT("/:productId", user_controllers.UpdateProduct)
+			//productRouter.GET("/", user_controllers.GetProducts)
+			//productRouter.DELETE("/:productId", user_controllers.DeleteProduct)
+		}
+		//router.Use(middlewares.MiddlewareAuth())
+
 	}
-	//router.Use(middlewares.MiddlewareAuth())
 
 	err := router.Run(PORT)
 	if err != nil {
