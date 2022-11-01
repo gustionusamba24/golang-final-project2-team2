@@ -17,14 +17,25 @@ func CreatePhoto(c *gin.Context) {
 		return
 	}
 
-	user, err := photo_services.PhotoService.CreatePhoto(&photoReq, userIdParam.(string))
+	photo, err := photo_services.PhotoService.CreatePhoto(&photoReq, userIdParam.(string))
 
 	if err != nil {
 		c.JSON(err.Status(), err)
 		return
 	}
 
-	c.JSON(http.StatusCreated, user)
+	c.JSON(http.StatusCreated, photo)
+}
+
+func GetPhotos(c *gin.Context) {
+	user, err := photo_services.PhotoService.GetPhotos()
+
+	if err != nil {
+		c.JSON(err.Status(), err)
+		return
+	}
+
+	c.JSON(http.StatusOK, user)
 }
 
 //func UserLogin(c *gin.Context) {

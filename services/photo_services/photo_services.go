@@ -11,6 +11,7 @@ var PhotoService photoServiceRepo = &photoService{}
 
 type photoServiceRepo interface {
 	CreatePhoto(*photo_resources.PhotoCreateRequest, string) (*photo_resources.PhotoCreateResponse, error_utils.MessageErr)
+	GetPhotos() (*[]photo_resources.PhotosGetResponse, error_utils.MessageErr)
 	//UserLogin(*user_resources.UserLoginRequest) (*user_resources.UserLoginResponse, error_utils.MessageErr)
 	//UserUpdate(string, *user_resources.UserUpdateRequest) (*user_resources.UserUpdateResponse, error_utils.MessageErr)
 	//UserDelete(string) error_utils.MessageErr
@@ -35,6 +36,15 @@ func (u *photoService) CreatePhoto(photoReq *photo_resources.PhotoCreateRequest,
 	}
 
 	return photo, nil
+}
+func (u *photoService) GetPhotos() (*[]photo_resources.PhotosGetResponse, error_utils.MessageErr) {
+	photos, err := photo_domain.PhotoDomain.GetPhotos()
+
+	if err != nil {
+		return nil, err
+	}
+
+	return photos, nil
 }
 
 //func (u *userService) UserLogin(userReq *user_resources.UserLoginRequest) (*user_resources.UserLoginResponse, error_utils.MessageErr) {

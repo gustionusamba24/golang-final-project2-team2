@@ -12,6 +12,11 @@ var PhotoDomain photoDomainRepo = &photoDomain{}
 const (
 	queryCreatePhoto = `INSERT INTO photos ( title, caption, photo_url, user_id) 
 	VALUES($1, $2, $3, $4) RETURNING id,title, caption, photo_url, user_id, created_at`
+
+	queryGetPhotos = `
+select photos.id as id, title, caption, photo_url, user_id, photos.created_at  as created_at, photos.updated_at as updated_at,
+       users.email as email, users.username as username  from photos left join users on users.id = photos.user_id;
+	`
 	//queryUserLogin  = `SELECT * from users where email = $1`
 	//queryUserUpdate = `UPDATE users set updated_at = now(), email = $1, username = $2 where id = $3 RETURNING id,username,email, password, age, created_at, updated_at`
 	//queryUserDelete = `UPDATE users SET  deleted_at = now() where id = $1`
@@ -20,6 +25,7 @@ const (
 
 type photoDomainRepo interface {
 	CreatePhoto(*photo_resources.PhotoCreateRequest, string) (*photo_resources.PhotoCreateResponse, error_utils.MessageErr)
+	GetPhotos() (*[]photo_resources.PhotosGetResponse, error_utils.MessageErr)
 }
 
 type photoDomain struct {
@@ -41,6 +47,30 @@ func (u *photoDomain) CreatePhoto(photoReq *photo_resources.PhotoCreateRequest, 
 	}
 
 	return &photo, nil
+}
+
+func (u *photoDomain) GetPhotos() (*[]photo_resources.PhotosGetResponse, error_utils.MessageErr) {
+	dbInstance := db.GetDB()
+	rows, err := dbInstance.Query(queryGetPhotos)
+	if err != nil {
+		return nil, error_utils.NewBadRequest(err.Error())
+	}
+
+	var photos []photo_resources.PhotosGetResponse
+
+	for rows.Next() {
+		var photo photo_resources.PhotosGetResponse
+		var photoUser photo_resources.PhotosUserGetResponse
+		err = rows.Scan(&photo.Id, &photo.Title, &photo.Caption, &photo.PhotoUrl, &photo.UserId, &photo.CreatedAt, &photo.UpdatedAt, &photoUser.Email, &photoUser.Username)
+		photo.User = &photoUser
+		if err != nil {
+			return nil, error_formats.ParseError(err)
+		}
+
+		photos = append(photos, photo)
+	}
+
+	return &photos, nil
 }
 
 //

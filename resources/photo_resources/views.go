@@ -11,6 +11,22 @@ type PhotoCreateResponse struct {
 	CreatedAt time.Time `json:"created_at"`
 }
 
+type PhotosUserGetResponse struct {
+	Email    string `json:"email"`
+	Username string `json:"username"`
+}
+
+type PhotosGetResponse struct {
+	Id        int64                  `json:"id"`
+	Title     string                 `json:"title"`
+	Caption   string                 `json:"caption"`
+	PhotoUrl  string                 `json:"photo_url"`
+	UserId    string                 `json:"user_id"`
+	CreatedAt time.Time              `json:"created_at"`
+	UpdatedAt time.Time              `json:"updated_at"`
+	User      *PhotosUserGetResponse `json:"user"`
+}
+
 //
 //type UserLoginResponse struct {
 //	Token string `json:"token"`
