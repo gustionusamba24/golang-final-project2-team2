@@ -6,6 +6,12 @@ type PhotoCreateRequest struct {
 	PhotoUrl string `json:"photo_url" validate:"required"`
 }
 
+type PhotoUpdateRequest struct {
+	Title    string `json:"title" validate:"required"`
+	Caption  string `json:"caption" validate:"required"`
+	PhotoUrl string `json:"photo_url" validate:"required"`
+}
+
 //
 //type UserLoginRequest struct {
 //	Email    string `json:"email" validate:"required,email"`

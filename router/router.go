@@ -33,6 +33,8 @@ func StartRouter() {
 			photoRouter.Use(middlewares.MiddlewareAuth())
 			photoRouter.POST("/", photo_controllers.CreatePhoto)
 			photoRouter.GET("/", photo_controllers.GetPhotos)
+			photoRouter.PUT("/:photoId", photo_controllers.UpdatePhoto)
+			photoRouter.DELETE("/:photoId", photo_controllers.DeletePhoto)
 		}
 		//router.Use(middlewares.MiddlewareAuth())
 

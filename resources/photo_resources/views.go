@@ -27,6 +27,15 @@ type PhotosGetResponse struct {
 	User      *PhotosUserGetResponse `json:"user"`
 }
 
+type PhotoUpdateResponse struct {
+	Id        int64     `json:"id"`
+	Title     string    `json:"title"`
+	Caption   string    `json:"caption"`
+	PhotoUrl  string    `json:"photo_url"`
+	UserId    string    `json:"user_id"`
+	UpdatedAt time.Time `json:"updated_at"`
+}
+
 //
 //type UserLoginResponse struct {
 //	Token string `json:"token"`
