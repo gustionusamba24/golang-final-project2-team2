@@ -22,7 +22,9 @@ func createUsersTable(db *sql.DB) {
 			password VARCHAR(255) NOT NULL,
 			age smallint NOT NULL,
 			created_at timestamptz DEFAULT now(),
-			updated_at timestamptz DEFAULT now()
+			updated_at timestamptz DEFAULT now(),
+			deleted_at timestamptz 
+
 		)
 	`
 	_, err = db.Exec(createTable)

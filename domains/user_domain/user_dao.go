@@ -5,7 +5,6 @@ import (
 	"golang-final-project2-team2/resources/user_resources"
 	"golang-final-project2-team2/utils/error_formats"
 	"golang-final-project2-team2/utils/error_utils"
-	"log"
 )
 
 var UserDomain userDomainRepo = &userDomain{}
@@ -15,17 +14,8 @@ const (
 	VALUES($1, $2, $3, $4) RETURNING id, username, email, age`
 	queryUserLogin  = `SELECT * from users where email = $1`
 	queryUserUpdate = `UPDATE users set updated_at = now(), email = $1, username = $2 where id = $3 RETURNING id,username,email, password, age, created_at, updated_at`
-	queryUserDelete = `DELETE from users where id = $1`
-	queryUserById   = `SELECT * from users where id = $1`
-	//queryGetProducts   = `SELECT id, name, price, stock, created_at from products ORDER BY id ASC`
-	//queryUpdateProduct = `
-	//	UPDATE products
-	//	SET name = $2,
-	//	price = $3,
-	//	stock = $4
-	//	WHERE id = $1
-	//	RETURNING id, name, price, stock, created_at`
-	//queryDeleteProduct = `DELETE from products WHERE id = $1`
+	queryUserDelete = `UPDATE users SET  deleted_at = now() where id = $1`
+	queryUserById   = `SELECT * from users where id = $1 and deleted_at is NULL`
 )
 
 type userDomainRepo interface {
@@ -34,10 +24,6 @@ type userDomainRepo interface {
 	UserUpdate(string, *user_resources.UserUpdateRequest) (*User, error_utils.MessageErr)
 	UserDelete(string) error_utils.MessageErr
 	UserCheckIsExists(int64) bool
-	//UpdateProduct(*Product) (*Product, error_utils.MessageErr)
-	//GetProducts() ([]*Product, error_utils.MessageErr)
-	//DeleteProduct(int64) error_utils.MessageErr
-	Close()
 }
 
 type userDomain struct {
@@ -65,7 +51,7 @@ func (u *userDomain) UserCheckIsExists(id int64) bool {
 	dbInstance := db.GetDB()
 	row := dbInstance.QueryRow(queryUserById, id)
 	var user User
-	err := row.Scan(&user.Id, &user.Username, &user.Email, &user.Password, &user.Age, &user.CreatedAt, &user.UpdatedAt)
+	err := row.Scan(&user.Id, &user.Username, &user.Email, &user.Password, &user.Age, &user.CreatedAt, &user.UpdatedAt, &user.DeletedAt)
 	if row.Err() != nil || err != nil {
 		return false
 	}
@@ -81,7 +67,7 @@ func (u *userDomain) UserLogin(userReq *user_resources.UserLoginRequest) (*User,
 
 	var user User
 
-	err := row.Scan(&user.Id, &user.Username, &user.Email, &user.Password, &user.Age, &user.CreatedAt, &user.UpdatedAt)
+	err := row.Scan(&user.Id, &user.Username, &user.Email, &user.Password, &user.Age, &user.CreatedAt, &user.UpdatedAt, &user.DeletedAt)
 
 	if err != nil {
 		return nil, error_utils.NewBadRequest(err.Error())
@@ -165,10 +151,3 @@ func (u *userDomain) UserDelete(id string) error_utils.MessageErr {
 //
 //	return nil
 //}
-
-func (u *userDomain) Close() {
-	err := db.GetDB().Close()
-	if err != nil {
-		log.Fatal(err.Error())
-	}
-}

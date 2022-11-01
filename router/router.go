@@ -2,6 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
+	"golang-final-project2-team2/controllers/photo_controllers"
 	"golang-final-project2-team2/controllers/user_controllers"
 	"golang-final-project2-team2/db"
 	"golang-final-project2-team2/middlewares"
@@ -25,10 +26,12 @@ func StartRouter() {
 			userRouter.Use(middlewares.MiddlewareAuth())
 			userRouter.PUT("/:userId", user_controllers.UpdateUser)
 			userRouter.DELETE("/", user_controllers.DeleteUser)
+		}
 
-			//productRouter.PUT("/:productId", user_controllers.UpdateProduct)
-			//productRouter.GET("/", user_controllers.GetProducts)
-			//productRouter.DELETE("/:productId", user_controllers.DeleteProduct)
+		photoRouter := apiRouter.Group("/photos")
+		{
+			photoRouter.Use(middlewares.MiddlewareAuth())
+			photoRouter.POST("/", photo_controllers.CreatePhoto)
 		}
 		//router.Use(middlewares.MiddlewareAuth())
 
