@@ -21,3 +21,16 @@ Anggota Kelompok :
 _Note : Memerlukan docker terinstall didalam perangkat anda_
 
 _Nama File Postman : `MyGram.postman_collection.json`_
+
+## List Route
+### Users
+- **`POST`- Users Register `api/users/register`**, Digunakan untuk membuat user baru.
+- **`POST`- Users Login `api/users/login`**, Digunakan untuk melakukan login atau autentikasi user.
+- **`PUT`- Users Update `api/users/:userId`**, Digunakan untuk mengubah data user berdasarkan idnya.
+- **`DELETE`- Users Delete `api/users`**, Digunakan untuk menghapus data user.
+
+### Photos
+- **`GET`- Photos Index `api/photos`**, Digunakan untuk mengambil seluruh data photos dari database.
+- **`POST`- Photos Store `api/photos`**, Digunakan untuk membuat photo baru.
+- **`PUT`- Photos Update `api/photos/:photoId`**, Digunakan untuk mengubah data photo berdasarkan idnya.
+- **`DELETE`- Photos Delete `api/photos/:photoId`**, Digunakan untuk menghapus data photo berdasarkan idnya.
