@@ -62,7 +62,7 @@ func (u *photoDomain) GetPhotos() (*[]photo_resources.PhotosGetResponse, error_u
 		return nil, error_utils.NewBadRequest(err.Error())
 	}
 
-	var photos []photo_resources.PhotosGetResponse
+	photos := make([]photo_resources.PhotosGetResponse, 0)
 
 	for rows.Next() {
 		var photo photo_resources.PhotosGetResponse
