@@ -1,5 +1,7 @@
 # golang-final-project2-team2
 
+Link Deploy API : https://golang-final-project2-team2-production.up.railway.app/
+
 Repository Team 2 Untuk Final Project 2 Golang (Kampus Merdeka Hacktiv8)
 
 Anggota Kelompok :

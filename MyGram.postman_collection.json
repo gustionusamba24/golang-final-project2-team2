@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b8272844-1934-4005-9fd7-1062c9c54ece",
+		"_postman_id": "d0cbcd1b-525a-4c67-bd5c-a359efd77c75",
 		"name": "MyGram",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "14294602"
@@ -24,12 +24,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/api/users/register",
-							"protocol": "http",
+							"raw": "https://golang-final-project2-team2-production.up.railway.app/api/users/register",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"golang-final-project2-team2-production",
+								"up",
+								"railway",
+								"app"
 							],
-							"port": "8081",
 							"path": [
 								"api",
 								"users",
@@ -54,12 +56,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/api/users/login",
-							"protocol": "http",
+							"raw": "https://golang-final-project2-team2-production.up.railway.app/api/users/login",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"golang-final-project2-team2-production",
+								"up",
+								"railway",
+								"app"
 							],
-							"port": "8081",
 							"path": [
 								"api",
 								"users",
@@ -94,12 +98,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/api/users/:userId",
-							"protocol": "http",
+							"raw": "https://golang-final-project2-team2-production.up.railway.app/api/users/:userId",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"golang-final-project2-team2-production",
+								"up",
+								"railway",
+								"app"
 							],
-							"port": "8081",
 							"path": [
 								"api",
 								"users",
@@ -131,12 +137,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/api/users",
-							"protocol": "http",
+							"raw": "https://golang-final-project2-team2-production.up.railway.app/api/users",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"golang-final-project2-team2-production",
+								"up",
+								"railway",
+								"app"
 							],
-							"port": "8081",
 							"path": [
 								"api",
 								"users"
@@ -166,12 +174,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/api/photos",
-							"protocol": "http",
+							"raw": "https://golang-final-project2-team2-production.up.railway.app/api/photos",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"golang-final-project2-team2-production",
+								"up",
+								"railway",
+								"app"
 							],
-							"port": "8081",
 							"path": [
 								"api",
 								"photos"
@@ -205,12 +215,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/api/photos",
-							"protocol": "http",
+							"raw": "https://golang-final-project2-team2-production.up.railway.app/api/photos",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"golang-final-project2-team2-production",
+								"up",
+								"railway",
+								"app"
 							],
-							"port": "8081",
 							"path": [
 								"api",
 								"photos"
@@ -244,12 +256,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/api/photos/:photoId",
-							"protocol": "http",
+							"raw": "https://golang-final-project2-team2-production.up.railway.app/api/photos/:photoId",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"golang-final-project2-team2-production",
+								"up",
+								"railway",
+								"app"
 							],
-							"port": "8081",
 							"path": [
 								"api",
 								"photos",
@@ -281,12 +295,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/api/photos/:photoId",
-							"protocol": "http",
+							"raw": "https://golang-final-project2-team2-production.up.railway.app/api/photos/:photoId",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"golang-final-project2-team2-production",
+								"up",
+								"railway",
+								"app"
 							],
-							"port": "8081",
 							"path": [
 								"api",
 								"photos",
