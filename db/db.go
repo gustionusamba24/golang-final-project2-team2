@@ -26,7 +26,7 @@ func InitializeDB() {
 	password := os.Getenv("PASSWORD")
 	host := os.Getenv("HOST")
 	database := os.Getenv("DATABASE")
-	PORT := os.Getenv("PORT")
+	PORT := os.Getenv("DB_PORT")
 
 	// DBURL := fmt.Sprintf("%s:%s@%s:%s/%s?sslmode=disable", username, password, host, PORT, database)
 	dbUrl := fmt.Sprintf("postgresql://%s:%s@%s:%s/%s?sslmode=disable", username, password, host, PORT, database)
