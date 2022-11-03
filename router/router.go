@@ -9,7 +9,7 @@ import (
 	"log"
 )
 
-const PORT = ":8081"
+const PORT = ":8080"
 
 func init() {
 	db.InitializeDB()
