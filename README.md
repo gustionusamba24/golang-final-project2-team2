@@ -10,7 +10,8 @@ Anggota Kelompok :
   Mengerjakan :
   - Setup Docker dan Init Project
   - Semua API User dan Postman user
-  - Semua API User dan Postman photo
+  - Semua API Photo dan Postman photo
+  - Setup deployment menggunakan railway
 - GUSTIO NUSAMBA (GLNG-KS04-025)
   Mengerjakan :
 
