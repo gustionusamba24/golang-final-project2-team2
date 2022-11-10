@@ -12,6 +12,8 @@ Anggota Kelompok :
   - Semua API User dan Postman user
   - Semua API Photo dan Postman photo
   - Setup deployment menggunakan railway
+  - Helper : GenerateToken, VerifyToken, ValidateRequest, ComparePass, HashPass
+  - Helper_test : TestSuccessGenerateToken, TestFailedGenerateToken, TestSuccessComparePass, TestFailedComparePass, TestSuccessHashPass, TestFailedHashPass
 - GUSTIO NUSAMBA (GLNG-KS04-025)
   Mengerjakan :
 
