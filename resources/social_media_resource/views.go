@@ -25,9 +25,9 @@ type SocialMediaGetResponse struct {
 }
 
 type SocialMediaUpdateResponse struct {
-	Id            int64  `json:"id"`
-	Name          string `json:"name"`
-	SocialMediaId string `json:"social_media_url"`
-	UserId        int64  `json:"user_id"`
-	UpdatedAt     string `json:"updated_at"`
+	Id             int64  `json:"id"`
+	Name           string `json:"name"`
+	SocialMediaUrl string `json:"social_media_url"`
+	UserId         int64  `json:"user_id"`
+	UpdatedAt      string `json:"updated_at"`
 }

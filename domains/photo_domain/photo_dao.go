@@ -15,7 +15,7 @@ const (
 
 	queryGetPhotos = `
 select photos.id as id, title, caption, photo_url, user_id, photos.created_at  as created_at, photos.updated_at as updated_at,
-       users.email as email, users.username as username  from photos left join users on users.id = photos.user_id;
+       users.email as email, users.username as username from photos left join users on users.id = photos.user_id;
 	`
 
 	queryGetPhoto = `select * from photos where id = $1`
