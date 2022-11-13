@@ -13,7 +13,7 @@ var CommentService commentServiceRepo = &commentService{}
 
 type commentServiceRepo interface {
 	CreateComment(*comment_resource.CommentCreateRequest, string) (*comment_resource.CommentCreateResponse, error_utils.MessageErr)
-	GetComments(*[]comment_resource.CommentGetResponse, error_utils.MessageErr)
+	GetComments() (*[]comment_resource.CommentGetResponse, error_utils.MessageErr)
 	UpdateComment(*comment_resource.CommentUpdateRequest, string, string) (*comment_resource.CommentUpdateResponse, error_utils.MessageErr)
 	DeleteComment(string, string) error_utils.MessageErr
 }

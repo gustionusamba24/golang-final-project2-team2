@@ -95,6 +95,7 @@ func (u *photoDomain) GetPhoto(photoId string) (*Photo, error_utils.MessageErr) 
 	}
 	return &photo, nil
 }
+
 func (u *photoDomain) UpdatePhoto(request *photo_resources.PhotoUpdateRequest, photoId string) (*photo_resources.PhotoUpdateResponse, error_utils.MessageErr) {
 	dbInstance := db.GetDB()
 	row := dbInstance.QueryRow(queryPhotoUpdate, request.Title, request.Caption, request.PhotoUrl, photoId)
