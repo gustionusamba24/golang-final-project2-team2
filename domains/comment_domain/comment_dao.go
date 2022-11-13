@@ -22,11 +22,11 @@ const (
 )
 
 type commentDomainRepo interface {
-	CreateComment(request *comment_resource.CommentCreateRequest, userId string) (*comment_resource.CommentCreateResponse, error_utils.MessageErr)
+	CreateComment(*comment_resource.CommentCreateRequest, string) (*comment_resource.CommentCreateResponse, error_utils.MessageErr)
 	GetComments() (*[]comment_resource.CommentGetResponse, error_utils.MessageErr)
-	GetComment(id string) (*comment_resource.CommentGetResponse, error_utils.MessageErr)
-	UpdateComment(request *comment_resource.CommentUpdateRequest, userId string) (*comment_resource.CommentUpdateResponse, error_utils.MessageErr)
-	DeleteComment(id string) error_utils.MessageErr
+	GetComment(string) (*comment_resource.CommentGetResponse, error_utils.MessageErr)
+	UpdateComment(*comment_resource.CommentUpdateRequest, string) (*comment_resource.CommentUpdateResponse, error_utils.MessageErr)
+	DeleteComment(string) error_utils.MessageErr
 }
 
 type commentDomain struct{}
