@@ -16,6 +16,8 @@ Anggota Kelompok :
   - Helper_test : TestSuccessGenerateToken, TestFailedGenerateToken, TestSuccessComparePass, TestFailedComparePass, TestSuccessHashPass, TestFailedHashPass
 - GUSTIO NUSAMBA (GLNG-KS04-025)
   Mengerjakan :
+  - Semua API Comment
+  - Semua API Social Media
 
 ## Cara Install
 

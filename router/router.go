@@ -2,7 +2,9 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
+	"golang-final-project2-team2/controllers/comment_controllers"
 	"golang-final-project2-team2/controllers/photo_controllers"
+	"golang-final-project2-team2/controllers/social_media_controllers"
 	"golang-final-project2-team2/controllers/user_controllers"
 	"golang-final-project2-team2/db"
 	"golang-final-project2-team2/middlewares"
@@ -37,6 +39,24 @@ func StartRouter() {
 			photoRouter.DELETE("/:photoId", photo_controllers.DeletePhoto)
 		}
 		//router.Use(middlewares.MiddlewareAuth())
+
+		commentRouter := apiRouter.Group("/comments")
+		{
+			commentRouter.Use(middlewares.MiddlewareAuth())
+			commentRouter.POST("/", comment_controllers.CreateComment)
+			commentRouter.GET("/", comment_controllers.GetComments)
+			commentRouter.PUT("/:commentId", comment_controllers.UpdateComment)
+			commentRouter.DELETE("/:commentId", comment_controllers.DeleteComment)
+		}
+
+		socialMediaRouter := apiRouter.Group("/social-media")
+		{
+			socialMediaRouter.Use(middlewares.MiddlewareAuth())
+			socialMediaRouter.POST("/", social_media_controllers.CreateSocialMedia)
+			socialMediaRouter.GET("/", social_media_controllers.GetSocialMedias)
+			socialMediaRouter.PUT("/:socialMediaId", social_media_controllers.UpdateSocialMedia)
+			socialMediaRouter.DELETE("/:socialMediaId", social_media_controllers.DeleteSocialMedia)
+		}
 
 	}
 

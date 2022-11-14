@@ -15,7 +15,7 @@ const (
 
 	queryGetPhotos = `
 select photos.id as id, title, caption, photo_url, user_id, photos.created_at  as created_at, photos.updated_at as updated_at,
-       users.email as email, users.username as username  from photos left join users on users.id = photos.user_id;
+       users.email as email, users.username as username from photos left join users on users.id = photos.user_id;
 	`
 
 	queryGetPhoto = `select * from photos where id = $1`
@@ -95,6 +95,7 @@ func (u *photoDomain) GetPhoto(photoId string) (*Photo, error_utils.MessageErr) 
 	}
 	return &photo, nil
 }
+
 func (u *photoDomain) UpdatePhoto(request *photo_resources.PhotoUpdateRequest, photoId string) (*photo_resources.PhotoUpdateResponse, error_utils.MessageErr) {
 	dbInstance := db.GetDB()
 	row := dbInstance.QueryRow(queryPhotoUpdate, request.Title, request.Caption, request.PhotoUrl, photoId)
